@@ -17,5 +17,6 @@ spec:
       containers:
       - name: nginx
         image: mccamel/bexam:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
