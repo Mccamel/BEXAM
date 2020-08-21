@@ -33,7 +33,8 @@ pipeline {
                 stage('Deploy Image') {
             steps {
                 script {
-                    kubernetesDeploy configs: 'kubernetes_deployments/nginx_deployment.yaml', dockerCredentials: [[credentialsId: 'mccamel_id', url: 'https://registry.hub.docker.com']], kubeConfig: [path: ''], kubeconfigId: 'KubernetesCred', secretName: 'matan-cred', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+                   //installed kubectl on the jenkins docker image - after hiting a BUG with  https://issues.jenkins-ci.org/browse/JENKINS-63224
+                   sh '/var/jenkins_home/bin/kubectl apply -f  kubernetes_deployments/nginx_deployment.yaml'
                 }
             }
                 }
