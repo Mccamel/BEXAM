@@ -7,7 +7,7 @@ pipeline {
         imageName = 'mccamel/bexam'
     }
     stages {
-        stage('buildStatic') {
+        stage('build Static') {
             steps {
                 sh "sed -i \'s/#BUILD_NO#/${env.BUILD_NUMBER}/g\' index.html "
                 echo 'index.html updated'
