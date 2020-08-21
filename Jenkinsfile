@@ -35,7 +35,7 @@ pipeline {
                 script {
                    //installed kubectl on the jenkins docker image - after hiting a BUG with  https://issues.jenkins-ci.org/browse/JENKINS-63224
                    sh '/var/jenkins_home/bin/kubectl apply -f  kubernetes_deployments/nginx_deployment.yaml'
-                   sh '/var/jenkins_home/bin/kubectl rollout restart deployment/nginx_deployment'
+                   sh '/var/jenkins_home/bin/kubectl rollout restart deployment/nginx-deployment'
                 }
             }
                 }
